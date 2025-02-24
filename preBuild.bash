@@ -11,5 +11,6 @@ sudo -E dpkg-reconfigure --frontend noninteractive tzdata
 sudo -E apt-get install -y cmake zip unzip
 sudo -E apt-get clean
 sudo -E rm -rf /var/lib/apt/lists/*
+sudo -E docker pull --platform linux/x86_64 ghcr.io/huggingface/text-generation-inference:2.3.0
 
 sudo -E mkdir -p /mnt/docs
