@@ -21,7 +21,7 @@ layout:
 environment:
   base:
     registry: ghcr.io
-    image: huggingface/text-generation-inference@sha256:dfcffa0498a806255fd14e462e864664519adf470bd7747379939208111b2138
+    image: huggingface/text-generation-inference:hm
     platform: linux/x86_64
     build_timestamp: "20231011102429"
     name: TGI
@@ -82,7 +82,7 @@ execution:
     type: jupyterlab
     class: webapp
     start_command: jupyter lab --allow-root --port 8888 --ip 0.0.0.0 --no-browser
-      --NotebookApp.base_url=\$PROXY_PREFIX --NotebookApp.default_url=/lab --notebook-dir=/project/
+      --NotebookApp.base_url=\$PROXY_PREFIX --NotebookApp.default_url=/lab
     health_check_command: '[ \$(echo url=\$(jupyter lab list 2>&1 | head -n 2 | tail
       -n 1 | cut -f1 -d'''' '''' | grep -v ''''Currently'''' | sed ''''s@/?@/lab?@g'''')
       | curl -o /dev/null -s -w ''''%{http_code}'''' --config -) == ''''200'''' ]'
